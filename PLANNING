@@ -1,0 +1,42 @@
+Models:
+  USER:table [name, sex, email, password]
+  - has many movies
+  - (form box for a review?)
+  REVIEW:table [rating, comments]
+  MOVIE:table [title, genre, release_date, director, poster_url ]
+  - has a genre
+  - has a title
+
+  ==================================================
+    MOVIE CRITICS PAGE
+
+  first page:
+
+  sign in-
+  log in-
+
+------------------------------
+main page:
+
+SEARCH MOVIES:
+select by:
+[  - Title: __________]
+[  - Genre:___________]
+[  - Director:________]
+[-   Year:____________]
+  - Select All Random.
+(All User's Movies)
+
+----------------------------
+individual movie page:
+
+MOVIE TITLE
+MOVIE IMAGE
+rating: * * * * * (of 5 or ten)
+[write a review:]
+[_________________________]
+[_________________________]
+[_________________________]
+[_________________________]
+
+(my reviews, all reviews made )

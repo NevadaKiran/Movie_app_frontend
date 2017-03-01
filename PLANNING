@@ -1,5 +1,5 @@
 Models:
-  USER:table [name, sex, email, password]
+  USER:table [name, email, password]
   - has many movies
   - (form box for a review?)
   REVIEW:table [rating, comments]

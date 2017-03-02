@@ -1,5 +1,9 @@
 function AuthInterceptor(AuthTokenFactory) {
-  return {
-    request: addToken
-  }
+  // return {
+  //   request: addToken
+  // }
+  //
+  // function addToken(config) {
+  //   var token = Auth
+  // }
 }

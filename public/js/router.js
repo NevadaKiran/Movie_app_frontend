@@ -21,4 +21,16 @@ angular.module('movie-angular-app', ['ui.router'])
           url:'/signup',
           templateUrl:'/partials/signup.html'
         })
+        .state('usershow',{
+          url:'/user/:userid',
+          templateUrl: '/partials/user_show.html'
+        })
+        .state('movieshow', {
+          url: '/movie/:movieid',
+          templateUrl: '/partials/movie_show.html'
+        })
+        .state('movierevies',{
+          url:'/movie/:movieid/review',
+          templateUrl: '/partials/movie_review.html'
+        })
       }

@@ -1,38 +1,69 @@
 /*nav bar*/
-nav ul li {
-
+header nav{
+  letter-spacing: .1em;
+}
+header nav a{
+  color: #161E78;
+  margin: 0 30px;
+  transition: color .3s;
+  vertical-align: top;
+  font-size: 1.2em;
+  display: inline-block;
 }
 
+a {
+  text-decoration: none!important;
+  font-family: 'Baloo', cursive;
+  background-color: transparent;
+}
+
+a:hover{
+  font-size: 1.5em;
+}
+}
 
 
 /*//FORM BOX sign in signup.*/
-.signup {
+/*.signup {
   background-color:blue;
-}
+
+}*/
 .form_box {
     border: 3px solid #f1f1f1;
     background: red;
+    width: 500px;
+    height: 620px;
+    margin-left: auto;
+    margin-right: auto;
 
 }
+label {
+  text-align: center;
+}
 
+.input{
+  margin-left: auto;
+  margin-right: auto;
+}
 
-input[type=text], input[type=password] {
-    width: 100%;
+/*input[type=text], input[type=password] {
+    width: 200px;
     padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
+    display: block;
     border: 1px solid #ccc;
     box-sizing: border-box;
-}
+
+}*/
 
 button {
     background-color: #5F9EA0;
     color: white;
     padding: 14px 20px;
-    margin: 8px 0;
+    margin: 0 auto;
     border: none;
     cursor: pointer;
-    width: 100%;
+    width: 150px;
+
 }
 
 .imgcontainer {

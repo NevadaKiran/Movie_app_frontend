@@ -1,3 +1,22 @@
 <h2> home </h2>
 
 <h1> testing </h2>
+
+  <div class="homeSearch">
+  <form id="searchMovies">
+    <label for="mainSearch"><h2>Looking For A Movie?</h2></label>
+    <input id="mainSearch" type="text" placeholder="Search for movie" ng-model="searchBar">
+  </form>
+</div>
+<br>
+<br>
+<div class="homeMovies">
+  <div class="eachMovie" ng-repeat="Movie in rand.shuffledMovieData | filter: searchBar">
+    <h4 class="MovieTitles">{{movie.name}}</h4>
+    <img ng-src="{{movie.url}}" alt="{{movie.name}}"><br>
+    <div ng-if="home.currentUser">
+      <i ng-click="rand.saveFeedMovie(movie, home.currentUser._id)"  class="fa fa-heart movieFeedIcons iconSave"> Save</i>
+    </div>
+    <h6 class="movieTitles">Category: {{movie.category}}</h6>
+  </div>
+</div>

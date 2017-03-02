@@ -1,8 +1,10 @@
 //FORM BOX sign in signup.
-
+.signup {
+  background-color:blue;
+}
 .form_box {
     border: 3px solid #f1f1f1;
-    background-color:blue;
+
 }
 
 

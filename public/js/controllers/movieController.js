@@ -13,7 +13,7 @@ $rootScope.$on('fetchData', function(event,data){
 });
 
 function populateInitialState(user){
-  $http.get(`${server}/users/${user_id}/movies`)
+  $http.get(`${server}/users/${user._id}/movies`)
   .then(function(response){
     console.log(response.data)
     self.movies = response.data
@@ -25,16 +25,14 @@ function populateInitialState(user){
     console.log("Creating Movie")
     console.log(currentUser)
     // requesting to rails API to create movies
-    $http.post(`${server}/users/${currentUser}/movies`)
+    $http.post(`${server}/users/${currentUser._id}/movies`, self.newMovie)
       .then(function(response){
         console.log(response.data)
         self.movies.push(response.data);
-        self.title = {};
-        self.director={};
-        self.genre= {};
-        self.release_date = {};
-        self.poster_url = {};
+        self.newMovie = {};
         console.log("MOVIES!!", self.movies);
+
+        $state.go('usershow', {userId: currentUser.id}))
       });
   }
 

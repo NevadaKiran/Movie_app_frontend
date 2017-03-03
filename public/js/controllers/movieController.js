@@ -1,24 +1,43 @@
-function MovieController($http, $state){
-  console.log("MovieController");
+function MovieController($http, $state, $scope, $stateParams, $rootScope){
+  console.log("Movie Controller")
+  console.log(currentUser);
 
-  self = this;
-  server = 'http://localhost:3000'
+  var self = this;
+  var server = 'http://localhost:3000'
+
   self.movies = [];
-  self.createMovie = createMovie;
 
+
+$rootScope.$on('fetchData', function(event,data){
+  populateInitialState(data)
+});
+
+function populateInitialState(user){
+  $http.get(`${server}/users/${user.id}/movies`)
+  .then(function(response){
+    console.log(response.data)
+    self.movies = response.data
+  })
+}
 
   // http reqeust to rails to create user Movies
-  function createMovie(){
-    console.log("Creating Board");
+  function createMovie(currentUser){
+    console.log("Creating Board")
+    console.log(currentUser)
     // requesting to rails API to create movies
-    $http.post(`${server}/users/` + currentUser.id + "/movies")
+    $http.post(`${server}/users/${currentUser}/movies`)
       .then(function(response){
         console.log(response.data)
         self.movies.push(response.data);
-        self.newMovieTitle = {}
+        self.title = {};
+        self.director={};
+        self.genre= {};
+        self.release_date = {};
+        self.poster_url = {};
         console.log("MOVIES!!", self.movies);
       });
   }
 
+  self.createMovie = createMovie;
 
 }

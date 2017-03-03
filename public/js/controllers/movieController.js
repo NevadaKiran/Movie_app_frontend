@@ -32,7 +32,7 @@ function populateInitialState(user){
         self.newMovie = {};
         console.log("MOVIES!!", self.movies);
 
-        $state.go('usershow', {userId: currentUser.id}))
+        $state.go('usershow', {userId: currentUser.id})
       });
   }
 

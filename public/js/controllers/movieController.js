@@ -12,7 +12,7 @@ $rootScope.$on('fetchData', function(event,data){
 });
 
 function populateInitialState(user){
-  $http.get(`${server}/users/${user.id}/movies`)
+  $http.get(`${server}/users/${user_id}/movies`)
   .then(function(response){
     console.log(response.data)
     self.movies = response.data

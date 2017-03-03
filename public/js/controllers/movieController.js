@@ -21,7 +21,7 @@ function populateInitialState(user){
 
   // http reqeust to rails to create user Movies
   function createMovie(currentUser){
-    console.log("Creating Board")
+    console.log("Creating Movie")
     console.log(currentUser)
     // requesting to rails API to create movies
     $http.post(`${server}/users/${currentUser}/movies`)

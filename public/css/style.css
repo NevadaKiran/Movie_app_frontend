@@ -1,70 +1,49 @@
-/*nav bar*/
+/*html {
+  background-color: #F0F8FF;
+}*/
+
 header nav{
   letter-spacing: .1em;
 }
 header nav a{
-  color: #161E78;
+  color: #191970;
   margin: 0 30px;
   transition: color .3s;
   vertical-align: top;
   font-size: 1.2em;
   display: inline-block;
+  background-color: #F0F8FF;
 }
-
 a {
   text-decoration: none!important;
   font-family: 'Baloo', cursive;
   background-color: transparent;
 }
-
 a:hover{
   font-size: 1.5em;
 }
+
+form {
+    border: 3px solid #5F9EA0;
+    background-color: #B0C4DE
 }
-// UNBROKEN ABOVE THIS
-//===========================================================
-
-/*//FORM BOX sign in signup.*/
-/*.signup {
-  background-color:blue;
-
-}*/
-.form_box {
-    border: 3px solid #f1f1f1;
-    background: red;
-    width: 500px;
-    height: 620px;
-    margin-left: auto;
-    margin-right: auto;
-
-}
-label {
-  text-align: center;
-}
-
-.input{
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/*input[type=text], input[type=password] {
-    width: 200px;
+input[type=text], input[type=password] {
+    width: 100%;
     padding: 12px 20px;
-    display: block;
-    border: 1px solid #ccc;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #191970;
     box-sizing: border-box;
-
-}*/
+}
 
 button {
-    background-color: #5F9EA0;
+    background-color: #8B0000;
     color: white;
     padding: 14px 20px;
-    margin: 0 auto;
+    margin: 8px 0;
     border: none;
     cursor: pointer;
-    width: 150px;
-
+    width: 100%;
 }
 
 .imgcontainer {

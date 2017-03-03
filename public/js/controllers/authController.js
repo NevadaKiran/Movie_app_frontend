@@ -1,5 +1,5 @@
 function AuthController($http, $state, $scope, $rootScope, AuthTokenFactory){
-  console.log("AuthController")
+  // console.log("AuthController")
   var self = this
   var server = 'http//localhost:3000'
 
@@ -26,7 +26,7 @@ function logout(){
   AuthTokenFactory.setToken()
 
   $scope.$emit('userLoggedOut');
-  $state.go('index');
+  $state.go('homepage');
 }
 
 this.signup = signup;

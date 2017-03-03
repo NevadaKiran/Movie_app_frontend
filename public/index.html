@@ -26,16 +26,17 @@
     <link href="https://fonts.googleapis.com/css?family=Baloo" rel="stylesheet">
     <title> Movie App</title>
   </head>
-  <body>
+  <body ng-controller="HomeController as home">
      <header>
-       <nav>
+       <nav ng-controller="AuthController as auth" >
           <ul>
-            <a> <i class="fa fa-home" aria-hidden="true"></i> <span>Home </span> </a>
-            <a> <i class="fa fa-user-plus" aria-hidden="true"></i><span>Sign Up</span> </a>
-            <a> <i class="fa fa-sign-in" aria-hidden="true"></i><span>Log In</span></a>
-            <a> <i class="fa fa-sign-out" aria-hidden="true"></i><span>Log Out</span </li>
+            <a ui-sref="homepage"> <i class="fa fa-home" aria-hidden="true"></i> <span>Home </span> </a>
+            <a ui-sref="signup"> <i class="fa fa-user-plus" aria-hidden="true"></i><span>Sign Up</span> </a>
+            <a ui-sref="login"> <i class="fa fa-sign-in" aria-hidden="true"></i><span>Log In</span></a>
+            <a ng-click="auth.logout()"> <i class="fa fa-sign-out" aria-hidden="true"></i><span>Log Out</span </li>
           </ul>
        </nav>
+
     </header>
     <hr>
 

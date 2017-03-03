@@ -9,6 +9,7 @@ function MovieController($http, $state, $scope, $stateParams, $rootScope){
 
 $rootScope.$on('fetchData', function(event,data){
   populateInitialState(data)
+
 });
 
 function populateInitialState(user){

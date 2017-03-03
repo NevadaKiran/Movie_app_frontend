@@ -1,6 +1,5 @@
 function MovieController($http, $state, $scope, $stateParams, $rootScope){
   console.log("Movie Controller")
-  console.log(currentUser);
 
   var self = this;
   var server = 'http://localhost:3000'

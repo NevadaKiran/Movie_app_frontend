@@ -1,23 +1,20 @@
-
-
-
-
-  <form class="form_box">
+<div ng-controller="AuthController as auth" class="login">
+  <form ng-submit="auth.login(user)" class="form_box">
     <div class="imgcontainer">
       <img src="./css/images/Movies.jpg" alt="Movie" class="avatar">
     </div>
-
     <div class="container">
       <div>
         <label><b>Email</b></label>
-        <input type="text" placeholder="Enter Email" name="email" required>
+        <input type="text" placeholder="Enter Email" ng-model="user.email" required>
       </div>
       <div>
         <label><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="password" required>
+        <input type="password" placeholder="Enter Password" ng-model="user.password_digest" required>
       </div>
       <div class="button_div">
-        <button type="submit">Login</button>
+        <button ng-click="auth.login(user)" type="submit">Login</button>
       </div>
     </div>
   </form>
+</div>

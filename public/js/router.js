@@ -1,5 +1,10 @@
 angular.module('movie-angular-app', ['ui.router'])
-    .config(movieRouter);
+    .config(movieRouter)
+    .config(authInterceptor)
+
+    function authInterceptor($httpProvider) {
+      $httpProvider.interceptors.push('AuthInterceptor')
+        }
 
     // movieRouter.$inject = ['$stateProvider', '$urlRouterProvider'];
 

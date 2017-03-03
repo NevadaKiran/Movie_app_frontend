@@ -1,17 +1,21 @@
+console.log("AUTHCONTROLLER");
 function AuthController($http, $state, $scope, $rootScope, AuthTokenFactory){
   // console.log("AuthController")
   var self = this
-  var server = 'http//localhost:3000'
+  var server = 'http://localhost:3000'
 
-  function signup(userPass) {
-    $http.post(`${server}/users`, {user: userPass})
+  function signup(user) {
+    console.log("SIGN");
+    $http.post(`${server}/users`, {user: user})
     .then(function(response){
+      console.log(response.data);
       $state.go('login');
     });
   }
 
-function login(userPass){
-  $http.post(`${server}/users/login`, {user: userPass})
+function login(user){
+  console.log("LOGIN");
+  $http.post(`${server}/users/login`, {user: user})
   .then(function(response){
     console.log(response.data)
     AuthTokenFactory.setToken(response.data.token)

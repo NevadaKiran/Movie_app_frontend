@@ -34,13 +34,13 @@ function populateInitialState(user){
 }
 
   // http reqeust to rails to create user Movies
-  function createMovie(){
-    console.log("Creating Movie")
+  function createMovie(newMovie){
 
+    console.log(self.newMovie);
     currentUser1 = $rootScope.currentUser.id
     console.log(currentUser1)
     // requesting to rails API to create movies
-    $http.post(`${server}/users/${currentUser1}/movies`, self.newMovie)
+    $http.post(`${server}/users/${currentUser1}/movies`, newMovie)
       .then(function(response){
         console.log(response.data)
         self.movies.push(response.data);

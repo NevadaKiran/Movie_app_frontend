@@ -22,6 +22,7 @@ function login(user){
 
     $scope.$emit('userLoggedIn', response.data.user);
     $rootScope.$emit('fetchData', response.data.user);
+    $rootScope.currentUser = response.data.user
     $state.go('usershow');
   });
 }

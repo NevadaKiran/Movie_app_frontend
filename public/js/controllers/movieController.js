@@ -4,13 +4,12 @@ function MovieController($http, $state, $scope, $stateParams, $rootScope){
   var self = this;
   var server = 'http://localhost:3000'
 
-  self.user = 'test'
-  self.test = 'banana'
   self.movies = [];
-
+  console.log($rootScope.test)
 
 $rootScope.$on('fetchData', function(event, data){
   console.log(data)
+  console.log($rootScope.currentUser);
   console.log(self.user)
   self.user = data.id
   populateInitialState(data)
@@ -35,14 +34,13 @@ function populateInitialState(user){
 }
 
   // http reqeust to rails to create user Movies
-  function createMovie(currentUser){
+  function createMovie(){
     console.log("Creating Movie")
-    console.log(self.user)
-    console.log(self.test)
-    console.log(self.movies)
-    console.log(currentUser)
+
+    currentUser1 = $rootScope.currentUser.id
+    console.log(currentUser1)
     // requesting to rails API to create movies
-    $http.post(`${server}/users/${currentUser._id}/movies`, self.newMovie)
+    $http.post(`${server}/users/${currentUser1}/movies`, self.newMovie)
       .then(function(response){
         console.log(response.data)
         self.movies.push(response.data);

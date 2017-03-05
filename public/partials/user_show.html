@@ -4,8 +4,6 @@
   <div>
     <h3 class="create" ng-click="showMovieForm = !showMovieForm"><i class= "fa fa-plus" aria-hidden="true"></i>Add a New Movie </h3>
   </div>
-
-
   <div ng-show="showMovieForm">
     <form ng-submit="movie.createMovie()">
       <input ng-model="newMovie.title" type="text" placeholder="Movie Title">
@@ -16,15 +14,18 @@
       <button ng-click="movie.createMovie(newMovie)" type="submit"> Add Movie </button>
     </form>
   </div>
-  <div class="savedMovies-container">
-    <div ng-repeat="movie in getSavedMovies">
-      <div>
-        <h4>{{savedMovie.name}}</h4>
-        <img ng-src="{{movie.url}}" alt="">
-        <button ng-click="movie.deleteMovie(movie._id, home.currentUser)">Delete</button>
-        <button ng-click="movie.populateFormData(movie, home.currentUser)">Edit</button>
-      </div>
+
+
+
+<div>
+      <h1> My Movies </h1>
+
+    <button ng-click="movie.showMovies(movies)">Show Me My Movies</button>
+    <div ng-repeat=" movie in movie.movies">
+      <h1> {{movie.title}}</h1>
+      <img class="poster_url" src="{{movie.poster_url}}">
     </div>
+
   </div>
 </div>
 
@@ -51,4 +52,3 @@
       <button ng-click="movie.createMovie()" type="submit"> Add Movie </button>
     </form>
   </div>
-</div> -->

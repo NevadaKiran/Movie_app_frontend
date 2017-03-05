@@ -43,15 +43,16 @@ function populateInitialState(user){
       });
   }
 
-  // function getSavedMovies(savedMovie, currentUser1){
-  //   $http.get(`${server}/users/${currentUser1}/movies`, movies)
-  //   .then(function(response){
-  //     self.savedMovies = response.data.movies
-  //     console.log("READ", self.savedMovies);
-  //
-  //     $state.go('movie_show')
-  //   })
-  // }
+  function showMovies(movies){
+      currentUser1 = $rootScope.currentUser.id
+    $http.get(`${server}/users/${currentUser1.id}/movies`)
+    .then(function(response){
+      console.log(response.data)
+      self.movies = response.data
+    })
+      $state.go('usershow')
+
+  }
 //
 // function updateMovie(currentUser){
 //   $http.put(`users/${currentUser.id}/movies${$stateParams.movieid}`,
@@ -75,6 +76,7 @@ function populateInitialState(user){
 // }
 
   self.createMovie = createMovie;
+  self.showMovies = showMovies;
 //   self.savedMovie = savedMovie;
 //   self.updateMovie = updateMovies;
 //   self.deleteMovie = deleteMovie;

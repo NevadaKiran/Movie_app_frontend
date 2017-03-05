@@ -1,4 +1,3 @@
-console.log("AUTHCONTROLLER");
 function AuthController($http, $state, $scope, $rootScope, AuthTokenFactory){
   // console.log("AuthController")
   var self = this
@@ -17,7 +16,6 @@ function login(user){
   console.log("LOGIN");
   $http.post(`${server}/users/login`, {user: user})
   .then(function(response){
-    console.log(response.data)
     AuthTokenFactory.setToken(response.data.token)
 
     $scope.$emit('userLoggedIn', response.data.user);

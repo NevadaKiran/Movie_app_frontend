@@ -45,12 +45,46 @@ function populateInitialState(user){
         console.log(response.data)
         self.movies.push(response.data);
         self.newMovie = {};
-        console.log("MOVIES!!", self.movies);
+        console.log("MOVIES!!", self.newMovie);
 
         $state.go('usershow', {userId: currentUser.id})
       });
   }
 
-  self.createMovie = createMovie;
+  function getSavedMovies(savedMovie, currentUser1){
+    $http.get(`${server}/users/${currentUser1}/movies`, movies)
+    .then(function(response){
+      self.savedMovies = response.data.movies
+      console.log("READ", self.savedMovies);
 
+      $state.go('movie_show')
+    })
+  }
+
+function updateMovie(currentUser){
+  $http.put(`users/${currentUser.id}/movies${$stateParams.movieid}`,
+  {name: self.name, url:self.url})
+  .then(function(movieResponse){
+    self.savedMovies = movieResponse.data.currentUser.movies;
+
+    self.url = ' ';
+    self.name = ' ';
+
+    $state.go('savedMovie', {userid: currentUser1})
+  })
+}
+
+function deleteMovie(id, currentUser){
+  console.log(id)
+  $http.delete(`/users/${currentUser1}/movies/${id}`)
+  .then(function(response){
+    self.savedMovies = response.data.currentUser.movies
+  })
+}
+
+  self.createMovie = createMovie;
+  this.createMovie = createMovie;
+  self.savedMovie = savedMovie;
+  self.updateMovie = updateMovies;
+  self.deleteMovie = deleteMovie;
 }

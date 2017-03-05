@@ -16,6 +16,16 @@
       <button ng-click="movie.createMovie(newMovie)" type="submit"> Add Movie </button>
     </form>
   </div>
+  <div class="savedMovies-container">
+    <div ng-repeat="movie in getSavedMovies">
+      <div>
+        <h4>{{savedMovie.name}}</h4>
+        <img ng-src="{{movie.url}}" alt="">
+        <button ng-click="movie.deleteMovie(movie._id, home.currentUser)">Delete</button>
+        <button ng-click="movie.populateFormData(movie, home.currentUser)">Edit</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 

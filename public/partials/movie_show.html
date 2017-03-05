@@ -1,0 +1,10 @@
+<div class="all-movies-container">
+  <div ng-repeat="movie.savedMovies">
+    <div>
+      <h4>{{savedMovie.name}}</h4>
+      <img ng-src="{{movie.url}}" alt="">
+      <button ng-click="movie.deleteMovie(movie._id, home.currentUser)">Delete</button>
+      <button ng-click="movie.populateFormData(movie, home.currentUser)">Edit</button>
+    </div>
+  </div>
+</div>

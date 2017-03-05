@@ -33,7 +33,7 @@ function populateInitialState(user){
     currentUser1 = $rootScope.currentUser.id
     console.log(currentUser1)
     // requesting to rails API to create movies
-    $http.post(`${server}/users/${currentUser1}/movies`, newMovie)
+    $http.post(`${server}/movies`, newMovie)
       .then(function(response){
         console.log(response.data)
         self.movies.push(response.data);

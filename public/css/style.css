@@ -59,3 +59,22 @@ img.avatar {
 .container {
     padding: 16px;
 }
+
+/*#User Show ALL MOVIES*/
+.poster_url {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  width: 250px;
+  height: 400px;
+}
+
+.edit_button {
+  width: 100px;
+  height: 60px;
+}
+
+.delete_button {
+  width: 100px;
+  height:60px;
+}

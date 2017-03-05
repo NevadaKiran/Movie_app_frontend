@@ -5,6 +5,7 @@ function MovieController($http, $state, $scope, $stateParams, $rootScope){
   var server = 'http://localhost:3000'
   self.movies = [];
 
+
 $rootScope.$on('fetchData', function(event, data){
   console.log(data)
   self.user = data.id
@@ -53,7 +54,7 @@ function populateInitialState(user){
       $state.go('usershow')
 
   }
-//
+
 // function updateMovie(currentUser){
 //   $http.put(`users/${currentUser.id}/movies${$stateParams.movieid}`,
 //   {name: self.name, url:self.url})
@@ -67,17 +68,28 @@ function populateInitialState(user){
 //   })
 // }
 //
-// function deleteMovie(id, currentUser){
-//   console.log(id)
-//   $http.delete(`/users/${currentUser1}/movies/${id}`)
-//   .then(function(response){
-//     self.savedMovies = response.data.currentUser.movies
-//   })
-// }
+function deleteMovie(id, currentUser1){
+  currentUser1 = $rootScope.currentUser.id
+  console.log(id)
+  $http.delete(`/users/${currentUser1}/movies/${id}`)
+  .then(function(response){
+    self.savedMovies = response.data.currentUser.movies
+  })
+}
+
+// Need A Show 1 Movie Route
+ // function show(movie){
+ //   currentUser1 = $rootScope.currentUser.id
+ //   $http.get(`${server}/users/${currentUser1.id}/movies/${movie.id}`)
+ //   console.log(response.data)
+ //
+ //   $state.go('movieshow')
+ // };
+//
 
   self.createMovie = createMovie;
   self.showMovies = showMovies;
 //   self.savedMovie = savedMovie;
 //   self.updateMovie = updateMovies;
-//   self.deleteMovie = deleteMovie;
+  self.deleteMovie = deleteMovie;
 }

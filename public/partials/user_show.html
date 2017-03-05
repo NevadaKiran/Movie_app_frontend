@@ -24,6 +24,8 @@
     <div ng-repeat=" movie in movie.movies">
       <h1> {{movie.title}}</h1>
       <img class="poster_url" src="{{movie.poster_url}}">
+      <button ng-click="movie.deleteMovie" class="delete_button"> Delete </button>
+      <button class="edit_button"> Edit </button>
     </div>
 
   </div>

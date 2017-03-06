@@ -66,6 +66,49 @@ function populateInitialState(user){
     $state.go('reviewshow')
   }
 
+
+  function populateFormData(movie, currentUser) {
+    console.log("HITTING UPDATE?");
+    title: self.title
+      poster_url:self.poster_url
+      director:self.director
+      genre: self.genre
+      release_date:self.release_date
+
+    $state.go('updateMovie', {
+      userId: currentUser._id,
+      movieId: movie._id
+    })
+   }
+
+
+  function updateMovie(id){
+    console.log("hitting update");
+    currentUser1 = $rootScope.currentUser.id
+    console.log(id)
+    $http.put(`${server}/movies/${id}`,
+    {title: self.title,
+      poster_url:self.poster_url,
+      director:self.director,
+      genre: self.genre,
+      release_date:self.release_date
+    })
+    .then(function(movieResponse){
+      console.log(movieResponse)
+      self.movies = movieResponse.data.movies;
+
+      self.title = ' ';
+      self.poster_url = ' ';
+      self.director = ' ';
+      self.genre = ' ';
+      self.release_date = ' ';
+
+      $state.reload('usershow', {userid: currentUser1})
+    })
+  }
+
+
+
 //Delete Route
   function deleteMovie(id){
     console.log("PLEASE DELETE");
@@ -80,6 +123,7 @@ function populateInitialState(user){
 
   self.createMovie = createMovie;
   self.showMovies = showMovies;
+  self.updateMovie = updateMovie;
   self.deleteMovie = deleteMovie;
 }
 

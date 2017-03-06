@@ -34,8 +34,12 @@ angular.module('movie-angular-app', ['ui.router'])
           url: '/movies',
           templateUrl: '/partials/movie_show.html'
         })
-        .state('movierevies',{
+        .state('moviereviews',{
           url:'/reviews',
           templateUrl: '/partials/movie_review.html'
+        })
+        .state('updateMovie',{
+          url:'/movies/:movieid',
+          templateUrl: '/partials/movie_edit.html'
         })
       }

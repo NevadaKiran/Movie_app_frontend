@@ -1,0 +1,10 @@
+<div ng-show="showMovieForm">
+  <form ng-submit="movie.editMovie()">
+    <input ng-model="editMovie.title" type="text" placeholder="Movie Title">
+    <input ng-model="editMovie.release_date" type="text" placeholder=" Release Date">
+    <input ng-model="editMovie.director" type="text" placeholder="Director">
+    <input ng-model="editMovie.genre" type="text" placeholder="Genre">
+    <input ng-model="editMovie.poster_url" type="text" placeholder="Movie Poster Link">
+    <button ng-click="movie.editMovie(home.currentUser.id, editMovie)" type="submit"> Add Movie </button>
+  </form>
+</div>

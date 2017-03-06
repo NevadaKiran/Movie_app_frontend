@@ -1,26 +1,15 @@
 <h1> Your Movie Collection </h1>
-<div ng-controller="MovieController as movie" class="show-form">
-  <div>
-    <h3 class="create" ng-click="showMovieForm = !showMovieForm"><i class= "fa fa-plus" aria-hidden="true"></i>Add a New Movie </h3>
-  </div>
 
-  <div ng-show="showMovieForm">
 
-    <!-- // This is movie create form, I need to figure out how to go to the  review  page:  -->
-    <form ng-submit="movie.createMovie()">
-      <input ng-model="newMovie.title" type="text" placeholder="Movie Title">
-      <input ng-model="newMovie.release_date" type="text" placeholder=" Release Date">
-      <input ng-model="newMovie.director" type="text" placeholder="Director">
-      <input ng-model="newMovie.genre" type="text" placeholder="Genre">
-      <input ng-model="newMovie.poster_url" type="text" placeholder="Movie Poster Link">
-      <button ng-click="movie.createMovie(home.currentUser.id, newMovie)" type="submit"> Add Movie </button>
-    </form>
-  </div>
 
-  <div ng-show="showMovieEditForm">
 
-    <!-- // This is movie create form, I need to figure out how to go to the  review  page:  -->
-    <form ng-submit="movie.updateMovie()">
+
+
+
+  <!-- <div ng-show="showMovieEditForm">
+
+    <! // This is movie create form, I need to figure out how to go to the  review  page:  -->
+    <!-- <form ng-submit="movie.updateMovie()">
       <input ng-model="newMovie.title" type="text" placeholder="Movie Title">
       <input ng-model="newMovie.release_date" type="text" placeholder=" Release Date">
       <input ng-model="newMovie.director" type="text" placeholder="Director">
@@ -28,7 +17,7 @@
       <input ng-model="newMovie.poster_url" type="text" placeholder="Movie Poster Link">
       <button ng-click="movie.editMovie(home.currentUser.id, newMovie)" type="submit"> Edit Movie </button>
     </form>
-  </div>
+  </div> -->
 
   <div>
     <h3 class="create" ng-click="showReviewForm = !showReviewForm"><i class= "fa fa-plus" aria-hidden="true"></i>Add Review</h3>
@@ -63,7 +52,7 @@
         <h1> {{film.title}}, id{{film.user_id}}</h1>
         <!-- {{film}} -->
         <img class="poster_url" src="{{film.poster_url}}">
-        <button ng-click="movie.createReview(film.id)" class="createReview_button"> Review </button>
+
         <button class="edit_button"> Edit </button>
         {{film.user_id}}
       </div>

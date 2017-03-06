@@ -51,7 +51,7 @@ function populateInitialState(user){
       console.log(response.data)
       self.movies = response.data
     })
-      $state.go('usershow')
+      $state.go('movieshow')
 
   }
 

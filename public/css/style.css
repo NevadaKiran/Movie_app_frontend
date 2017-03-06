@@ -1,7 +1,6 @@
-/*html {
-  background-color: #F0F8FF;
-}*/
-
+h1{
+  text-align: center;
+}
 header nav{
   letter-spacing: .1em;
 }
@@ -127,11 +126,17 @@ img.avatar {
 
 /*#User Show ALL MOVIES*/
 .poster_url {
-  display: flex;
+  /*display:flex;;
   flex-flow: row nowrap;
-  justify-content: space-between;
-  width: 250px;
-  height: 400px;
+  justify-content: space-between;*/
+  width: 300px;
+  height: 500px;
+}
+
+.allmovies{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .edit_button {
@@ -140,6 +145,10 @@ img.avatar {
 }
 
 .delete_button {
+  width: 100px;
+  height:60px;
+}
+.review_button {
   width: 100px;
   height:60px;
 }

@@ -10,13 +10,30 @@ function ReviewController($scope, $http, $state, $stateParams, $rootScope){
     populateInitialState(data)
   });
 
-  function deleteMovie(id, currentUser1){
+  function deleteReview(id, currentUser1){
     currentUser1 = $rootScope.currentUser.id
     console.log(id)
-    $http.delete(`/users/${currentUser1}/movies/${id}`)
+    $http.delete(`${server}/reviews/${id}`)
     .then(function(response){
-      self.savedMovies = response.data.currentUser.movies
+      self.savedReviews = response.data.currentUser.reviews
     })
+  }
+
+  function updateReview(newReview){
+
+    console.log(self.newMovie);
+    currentUser1 = $rootScope.currentUser.id
+    console.log(currentUser1)
+
+    $http.patch(`${server}/reviews/${id}`)
+      .then(function(response){
+        console.log(response.data)
+        self.movies.push(response.data);
+        newMovie = {};
+        console.log("I CAN HAZ MOVIREVIEW?!!", newReview);
+
+        $state.go('usershow', {userId: currentUser1.id})
+      });
   }
 
 }

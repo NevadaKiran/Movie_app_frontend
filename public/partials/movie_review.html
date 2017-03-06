@@ -1,0 +1,10 @@
+<div class="">
+  <h1>My Movie Reviews</h1>
+  <button ng-click="movie.deleteReview(movies)"></button>
+  <div ng-repeat=" review in review.movies">
+    <h1> {{movie.title}}</h1>
+    <img class="poster_url" src="{{movie.poster_url}}">
+    <button ng-click="movie.deleteMovie" class="delete_button"> Delete </button>
+    <button class="edit_button"> Edit </button>
+  </div>
+</div>

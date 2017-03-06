@@ -27,7 +27,7 @@ function populateInitialState(user){
 }
 
   // http reqeust to rails to create user Movies
-  function createMovie(newMovie){
+  function createMovie(currentUser1, newMovie){
 
     console.log(self.newMovie);
     currentUser1 = $rootScope.currentUser.id
@@ -46,7 +46,7 @@ function populateInitialState(user){
 
   function showMovies(movies){
       currentUser1 = $rootScope.currentUser.id
-    $http.get(`${server}/users/${currentUser1.id}/movies`)
+    $http.get(`${server}/movies`)
     .then(function(response){
       console.log(response.data)
       self.movies = response.data
@@ -68,12 +68,17 @@ function populateInitialState(user){
 //   })
 // }
 //
-function deleteMovie(id, currentUser1){
+function deleteMovie(id){
+  console.log("PLEASE DELETE");
   currentUser1 = $rootScope.currentUser.id
   console.log(id)
-  $http.delete(`/users/${currentUser1}/movies/${id}`)
+  // console.log(film);
+  console.log(currentUser1);
+  $http.delete(`${server}/movies/${id}`)
   .then(function(response){
-    self.savedMovies = response.data.currentUser.movies
+    console.log(response);
+    showMovies();
+    // self.savedMovies = response.data.currentUser.movies
   })
 }
 

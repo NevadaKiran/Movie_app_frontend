@@ -11,7 +11,7 @@
       <input ng-model="newMovie.director" type="text" placeholder="Director">
       <input ng-model="newMovie.genre" type="text" placeholder="Genre">
       <input ng-model="newMovie.poster_url" type="text" placeholder="Movie Poster Link">
-      <button ng-click="movie.createMovie(newMovie)" type="submit"> Add Movie </button>
+      <button ng-click="movie.createMovie(home.currentUser.id, newMovie)" type="submit"> Add Movie </button>
     </form>
   </div>
 
@@ -21,7 +21,18 @@
       <h1> My Movies </h1>
 
     <button ng-click="movie.showMovies(movies)">Show Me My Movies</button>
-    <div ng-repeat=" movie in movie.movies">
+    <div ng-repeat=" film in movie.movies">
+      <h1> {{film.title}}</h1>
+      {{film}}
+      <img class="poster_url" src="{{film.poster_url}}">
+      <button ng-click="movie.deleteMovie(film.id)" class="delete_button"> Delete </button>
+      <button class="edit_button"> Edit </button>
+      {{film.user_id}}
+    </div>
+
+
+    <button ng-click="movie.deleteReview(movies)"></button>
+    <div ng-repeat=" review in review.movies">
       <h1> {{movie.title}}</h1>
       <img class="poster_url" src="{{movie.poster_url}}">
       <button ng-click="movie.deleteMovie" class="delete_button"> Delete </button>
@@ -31,7 +42,7 @@
   </div>
 </div>
 
-
+{{home.currentUser.id}}
 
 
 

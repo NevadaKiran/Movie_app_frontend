@@ -3,7 +3,6 @@ function HomeController($scope, $http){
   var self = this;
 
   $scope.$on('userLoggedIn', function(event, data){
-    console.log(data)
     self.currentUser = data;
   });
 

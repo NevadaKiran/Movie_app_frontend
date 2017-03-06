@@ -5,10 +5,10 @@
 
     <button ng-click="movie.showMovies(movies)">Show Movie Collection</button>
     <div class="allmovies" ng-repeat=" film in movie.movies">
-      <h1> {{film.title}}</h1>
+      <h1 ng-click="movie.showMovie(film.id)"> {{film.title}}, {{film.id}}</h1>
       <img ng-click="movie.showMovie(movie)" class="poster_url" src="{{film.poster_url}}">
       <button ng-click="movie.deleteMovie(film.id)" class="delete_button"> Delete </button>
-      <button ng-click="movie.updateMovie(film.id)" class="edit_button"> Edit </button>
+        <button ng-click="showEditForm = !showEditForm" class="edit_button">Edit</button>
         <button ng-click="movie.showMovie(film.id)" class="review_button"> Review</button>
     </div>
 
@@ -24,7 +24,6 @@
         </form>
       </div>
 
-<button ng-click="showEditForm = !showEditForm"> Edit Your Movie </button>
       <div ng-show="showEditForm">
         <form ng-submit="movie.updateMovie(film)">
           <input ng-model="editMovie.title" type="text" placeholder="Movie Title">

@@ -137,6 +137,8 @@ img.avatar {
 
 .delete_button {
   display: flex;
+  flex-flow: row;
+  text-align: center;
   width: 100px;
   height:60px;
   margin-top: 20px;
@@ -146,9 +148,23 @@ img.avatar {
 }
 .review_button {
   display: flex;
+  flex-flow: row;
+  text-align: center;
   margin-left: auto;
   margin-right: auto;
   width: 100px;
   height:60px;
   margin-top: 20px;
+}
+
+.edit_button{
+  display: flex;
+  flex-flow: row;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100px;
+  height:60px;
+  margin-top: 20px;
+
 }

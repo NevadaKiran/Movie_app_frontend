@@ -17,7 +17,6 @@ function login(user){
   $http.post(`${server}/users/login`, {user: user})
   .then(function(response){
     AuthTokenFactory.setToken(response.data.token)
-
     $scope.$emit('userLoggedIn', response.data.user);
     $rootScope.$emit('fetchData', response.data.user);
     $rootScope.currentUser = response.data.user
@@ -27,7 +26,6 @@ function login(user){
 
 function logout(){
   AuthTokenFactory.setToken()
-
   $scope.$emit('userLoggedOut');
   $state.go('homepage');
 }

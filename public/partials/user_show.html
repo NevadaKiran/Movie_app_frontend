@@ -18,14 +18,14 @@
   </div>
 
   <div>
-    <h3 class="create" ng-click="showReviewForm = !showReviewForm"><i class= "fa fa-plus" aria-hidden="true"></i></h3>
+    <h3 class="create" ng-click="showReviewForm = !showReviewForm"><i class= "fa fa-plus" aria-hidden="true"></i>Add Review</h3>
   </div>
   <div ng-show="showReviewForm">
     <form ng-submit="movie.createReview()">
       <!-- <input ng-model="newReview.title" type="text" placeholder="Movie Title"> -->
       <input ng-model="newReview.rating" type="text" placeholder=" Rating">
       <input ng-model="newReview.comments" type="text" placeholder="comments">
-      <button ng-click="review.createReview(home.currentUser.id, newReview)" type="submit"> Add Movie </button>
+      <button ng-click="review.createReview(home.currentUser.id, newReview)" type="submit"> Add Review </button>
     </form>
   </div>
 
@@ -45,7 +45,7 @@
   </div>
 
   <div>
-      <button ng-click="movie.showReviews(movies)">My movie reviews</button>
+      <button ng-click="movie.showReviews(movies)">Show Me My Reviews</button>
       <div ng-repeat=" review in review.reviews">
         <h1> {{film.title}}, id{{film.user_id}}</h1>
         <!-- {{film}} -->

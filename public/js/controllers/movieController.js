@@ -12,6 +12,11 @@ $rootScope.$on('fetchData', function(event, data){
 
 });
 
+function editPage(){
+  console.log("editPage/");
+  $state.go('updateMovie')
+}
+
 function populateInitialState(user){
   self.user = user.id
   $http.get(`${server}/users/${user.id}`)
@@ -34,7 +39,8 @@ function populateInitialState(user){
   }
 //Show Movies Route
   function showMovies(movies){
-      currentUser1 = $rootScope.currentUser.id
+    console.log('show movie')
+    currentUser1 = $rootScope.currentUser.id
     $http.get(`${server}/movies`)
     .then(function(response){
       console.log(response.data)
@@ -44,11 +50,11 @@ function populateInitialState(user){
 
   }
 
-  function updateMovie(id){
+  function updateMovie(movie){
     console.log("hitting update");
     currentUser1 = $rootScope.currentUser.id
-    console.log(id)
-    $http.put(`${server}/movies/${id}`,
+    console.log(movie)
+    $http.put(`${server}/movies/${movie}`,
     {title: self.title,
       poster_url:self.poster_url,
       director:self.director,
@@ -86,6 +92,7 @@ function populateInitialState(user){
   self.showMovies = showMovies;
   self.updateMovie = updateMovie;
   self.deleteMovie = deleteMovie;
+  self.editPage = editPage;
 }
 
 

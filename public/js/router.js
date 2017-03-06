@@ -2,6 +2,8 @@ angular.module('movie-angular-app', ['ui.router'])
     .config(movieRouter)
     .config(authInterceptor);
 
+    // $rootScope.$state= state
+
     function authInterceptor($httpProvider) {
       $httpProvider.interceptors.push('AuthInterceptor');
         }
@@ -39,7 +41,8 @@ angular.module('movie-angular-app', ['ui.router'])
           templateUrl: '/partials/movie_review.html'
         })
         .state('updateMovie',{
-          url:'/movies/:movieid',
+          url:'/movies/:movieid/edit',
           templateUrl: '/partials/movie_edit.html'
         })
+
       }

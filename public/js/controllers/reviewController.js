@@ -1,7 +1,7 @@
 function ReviewController($scope, $http, $state, $stateParams, $rootScope){
   console.log("ReviewController");
   var self = this;
-  var server = 'http://localhost:3000'
+  var server = 'https://young-headland-63238.herokuapp.com/'
   self.review = [];
 
 //   $rootScope.$on('fetchData', function(event, data){

@@ -2,7 +2,7 @@ function MovieController($http, $state, $scope, $stateParams, $rootScope){
   console.log("Movie Controller")
 
   var self = this;
-  var server = 'http://localhost:3000'
+  var server = 'https://young-headland-63238.herokuapp.com/'
   self.movies = [];
 
 

@@ -1,7 +1,7 @@
 function AuthController($http, $state, $scope, $rootScope, AuthTokenFactory){
   // console.log("AuthController")
   var self = this
-  var server = 'http://localhost:3000'
+  var server = 'https://young-headland-63238.herokuapp.com/'
 
   function signup(user) {
     console.log("SIGN");

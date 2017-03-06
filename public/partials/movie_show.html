@@ -7,7 +7,7 @@
       <h1> {{film.title}}</h1>
       <img ng-click="movie.showMovie(movie)" class="poster_url" src="{{film.poster_url}}">
       <button ng-click="movie.deleteMovie(film.id)" class="delete_button"> Delete </button>
-        <button ng-click="movie.showMovie(movie)"" class="review_button"> Review</button>
+        <button ng-click="movie.showMovie(film.id)" class="review_button"> Review</button>
     </div>
 
     <!-- Create Movie Form  -->

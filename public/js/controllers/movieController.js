@@ -61,7 +61,7 @@ function populateInitialState(user){
     currentUser1= $rootScope.currentUser1.id
     $http.get(`${server}/movies/${id}`)
     .then(function(response){
-      consle.log(response);
+      console.log(response);
     })
     $state.go('reviewshow')
   }

@@ -58,15 +58,16 @@ function populateInitialState(user){
 function updateMovie(id){
   currentUser1 = $rootScope.currentUser.id
   console.log(id)
-  $http.put(`${server}/movies/${id}`,
+  $http.put(`${server}/movies/${movieid}`,
   {name: self.name, url:self.url})
   .then(function(movieResponse){
-    self.savedMovies = movieResponse.data.currentUser.movies;
+    console.log(movieResponse)
+    // self.savedMovies = movieResponse.data.currentUser.movies;
+    //
+    // self.url = ' ';
+    // self.name = ' ';
 
-    self.url = ' ';
-    self.name = ' ';
-
-    $state.go('savedMovie', {userid: currentUser1})
+    $state.reload('usershow', {userid: currentUser1})
   })
 }
 

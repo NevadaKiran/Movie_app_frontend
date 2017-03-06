@@ -77,7 +77,8 @@ function deleteMovie(id){
   $http.delete(`${server}/movies/${id}`)
   .then(function(response){
     console.log(response);
-    showMovies();
+    // Recall all movies to show current list
+    // showMovies();
     // self.savedMovies = response.data.currentUser.movies
   })
 }

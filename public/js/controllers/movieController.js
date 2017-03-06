@@ -19,7 +19,7 @@ function populateInitialState(user){
   console.log(user.id)
   self.user = user.id
 
-  $http.get(`${server}/users/${user.id}/movies`)
+  $http.get(`${server}/users/${user.id}`)
   .then(function(response){
     console.log(response.data)
     self.movies = response.data
@@ -27,13 +27,13 @@ function populateInitialState(user){
 }
 
   // http reqeust to rails to create user Movies
-  function createMovie(newMovie){
+  function createMovie(currentUser1, newMovie){
 
     console.log(self.newMovie);
     currentUser1 = $rootScope.currentUser.id
     console.log(currentUser1)
     // requesting to rails API to create movies
-    $http.post(`${server}/users/${currentUser1}/movies`, newMovie)
+    $http.post(`${server}/movies`, newMovie)
       .then(function(response){
         console.log(response.data)
         self.movies.push(response.data);
@@ -46,7 +46,7 @@ function populateInitialState(user){
 
   function showMovies(movies){
       currentUser1 = $rootScope.currentUser.id
-    $http.get(`${server}/users/${currentUser1.id}/movies`)
+    $http.get(`${server}/movies`)
     .then(function(response){
       console.log(response.data)
       self.movies = response.data
@@ -68,13 +68,21 @@ function populateInitialState(user){
 //   })
 // }
 //
-function deleteMovie(id, currentUser1){
+function deleteMovie(id){
+  console.log("PLEASE DELETE");
   currentUser1 = $rootScope.currentUser.id
   console.log(id)
-  $http.delete(`/users/${currentUser1}/movies/${id}`)
+  // console.log(film);
+  console.log(currentUser1);
+  $http.delete(`${server}/movies/${id}`)
   .then(function(response){
-    self.savedMovies = response.data.currentUser.movies
+    console.log(response);
+
+    // Recall all movies
+    // showMovies();
+    // self.savedMovies = response.data.currentUser.movies
   })
+  $state.reload('usershow')
 }
 
 // Need A Show 1 Movie Route

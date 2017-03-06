@@ -1,0 +1,40 @@
+<div>
+  <h3 class="create" ng-click="showReviewForm = !showReviewForm"><i class= "fa fa-plus" aria-hidden="true"></i>Add a Movie Review </h3>
+</div>
+
+<div class="">
+  <h1>My Movie Reviews</h1>
+  <button ng-click="movie.deleteReview(movies)"></button>
+  <div ng-repeat=" review in review.movies">
+    <h1> {{movie.title}}</h1>
+    <img class="poster_url" src="{{movie.poster_url}}">
+    <button ng-click="movie.deleteMovie" class="delete_button"> Delete </button>
+    <button class="edit_button"> Edit </button>
+  </div>
+</div>
+
+<div ng-show="showReviewForm">
+  <form ng-submit="movie.createReview()">
+    <!-- <input ng-model="newReview.title" type="text" placeholder="Movie Title"> -->
+    <input ng-model="newReview.rating." type="text" placeholder=" Rating">
+    <input ng-model="newReview.comments" type="text" placeholder="comments">
+
+    <button ng-click="review.createReview(home.currentUser.id, newReview)" type="submit"> Add Movie </button>
+  </form>
+</div>
+
+
+<!-- <div ng-controller="MovieController as movie" class="show-form">
+  <div>
+    <h3 class="create" ng-click="showMovieForm = !showMovieForm"><i class= "fa fa-plus" aria-hidden="true"></i>Add a New Movie </h3>
+  </div>
+  <div ng-show="showMovieForm">
+    <form ng-submit="movie.createMovie()">
+      <input ng-model="newMovie.title" type="text" placeholder="Movie Title">
+      <input ng-model="newMovie.release_date" type="text" placeholder=" Release Date">
+      <input ng-model="newMovie.director" type="text" placeholder="Director">
+      <input ng-model="newMovie.genre" type="text" placeholder="Genre">
+      <input ng-model="newMovie.poster_url" type="text" placeholder="Movie Poster Link">
+      <button ng-click="movie.createMovie(home.currentUser.id, newMovie)" type="submit"> Add Movie </button>
+    </form>
+  </div> -->

@@ -22,7 +22,7 @@
   </div>
   <div ng-show="showReviewForm">
     <form ng-submit="movie.createReview()">
-      <input ng-model="newReview.title" type="text" placeholder="Movie Title">
+      <!-- <input ng-model="newReview.title" type="text" placeholder="Movie Title"> -->
       <input ng-model="newReview.rating" type="text" placeholder=" Rating">
       <input ng-model="newReview.comments" type="text" placeholder="comments">
       <button ng-click="review.createReview(home.currentUser.id, newReview)" type="submit"> Add Movie </button>

@@ -55,19 +55,22 @@ function populateInitialState(user){
 
   }
 
-// function updateMovie(currentUser){
-//   $http.put(`users/${currentUser.id}/movies${$stateParams.movieid}`,
-//   {name: self.name, url:self.url})
-//   .then(function(movieResponse){
-//     self.savedMovies = movieResponse.data.currentUser.movies;
-//
-//     self.url = ' ';
-//     self.name = ' ';
-//
-//     $state.go('savedMovie', {userid: currentUser1})
-//   })
-// }
-//
+function updateMovie(id){
+  currentUser1 = $rootScope.currentUser.id
+  console.log(id)
+  $http.put(`${server}/movies/${id}`,
+  {name: self.name, url:self.url})
+  .then(function(movieResponse){
+    self.savedMovies = movieResponse.data.currentUser.movies;
+
+    self.url = ' ';
+    self.name = ' ';
+
+    $state.go('savedMovie', {userid: currentUser1})
+  })
+}
+
+
 function deleteMovie(id){
   console.log("PLEASE DELETE");
   currentUser1 = $rootScope.currentUser.id

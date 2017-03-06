@@ -78,6 +78,7 @@ img.avatar {
   height: 600px;
   padding: 100px;
   margin-left: 300px;
+  text-align: center;
 }
 
 .DarkKnight{
@@ -117,6 +118,11 @@ img.avatar {
   background: rgba(0,0,0,0.8);
 
   filter:blur(.1px);
+}
+#homepage {
+  background: #F0F8FF;
+  height: 200vh;
+  width: 200vw;
 }
 
 /*#User Show ALL MOVIES*/

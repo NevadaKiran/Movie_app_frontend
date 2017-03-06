@@ -38,7 +38,7 @@
       <!-- {{film}} -->
       <img class="poster_url" src="{{film.poster_url}}">
       <button ng-click="movie.deleteMovie(film.id)" class="delete_button"> Delete </button>
-      <button class="edit_button"> Edit </button>
+      <button ng-click="movie.updateMovie(id)" class="edit_button"> Edit </button>
       {{film.user_id}}
     </div>
 

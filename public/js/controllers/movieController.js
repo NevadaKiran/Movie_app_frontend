@@ -19,7 +19,7 @@ function populateInitialState(user){
   console.log(user.id)
   self.user = user.id
 
-  $http.get(`${server}/users/${user.id}/movies`)
+  $http.get(`${server}/users/${user.id}`)
   .then(function(response){
     console.log(response.data)
     self.movies = response.data
@@ -77,10 +77,12 @@ function deleteMovie(id){
   $http.delete(`${server}/movies/${id}`)
   .then(function(response){
     console.log(response);
+
     // Recall all movies
     // showMovies();
     // self.savedMovies = response.data.currentUser.movies
   })
+  $state.reload('usershow')
 }
 
 // Need A Show 1 Movie Route

@@ -1,10 +1,12 @@
 <h1> Your Movie Collection </h1>
-
 <div ng-controller="MovieController as movie" class="show-form">
   <div>
     <h3 class="create" ng-click="showMovieForm = !showMovieForm"><i class= "fa fa-plus" aria-hidden="true"></i>Add a New Movie </h3>
   </div>
+
   <div ng-show="showMovieForm">
+
+    <!-- // This is movie create form, I need to figure out how to go to the  review  page:  -->
     <form ng-submit="movie.createMovie()">
       <input ng-model="newMovie.title" type="text" placeholder="Movie Title">
       <input ng-model="newMovie.release_date" type="text" placeholder=" Release Date">
@@ -15,11 +17,21 @@
     </form>
   </div>
 
+  <div>
+    <h3 class="create" ng-click="showReviewForm = !showReviewForm"><i class= "fa fa-plus" aria-hidden="true"></i></h3>
+  </div>
+  <div ng-show="showReviewForm">
+    <form ng-submit="movie.createReview()">
+      <input ng-model="newReview.title" type="text" placeholder="Movie Title">
+      <input ng-model="newReview.rating" type="text" placeholder=" Rating">
+      <input ng-model="newReview.comments" type="text" placeholder="comments">
+      <button ng-click="review.createReview(home.currentUser.id, newReview)" type="submit"> Add Movie </button>
+    </form>
+  </div>
+
 
 
 <div>
-      <h1> My Movies </h1>
-
     <button ng-click="movie.showMovies(movies)">Show Me My Movies</button>
     <div ng-repeat=" film in movie.movies">
       <h1> {{film.title}}, id{{film.user_id}}</h1>
@@ -31,9 +43,21 @@
     </div>
 
   </div>
+
+  <div>
+      <button ng-click="movie.showReviews(movies)">My movie reviews</button>
+      <div ng-repeat=" review in review.reviews">
+        <h1> {{film.title}}, id{{film.user_id}}</h1>
+        <!-- {{film}} -->
+        <img class="poster_url" src="{{film.poster_url}}">
+        <button ng-click="movie.createReview(film.id)" class="createReview_button"> Review </button>
+        <button class="edit_button"> Edit </button>
+        {{film.user_id}}
+      </div>
+    </div>
 </div>
 
-{{home.currentUser.id}}
+<h3>CURRENT USER {{home.currentUser.id}}</h3>
 
 
 

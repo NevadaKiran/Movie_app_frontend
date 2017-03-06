@@ -10,6 +10,22 @@ function ReviewController($scope, $http, $state, $stateParams, $rootScope){
     populateInitialState(data)
   });
 
+  function createReview(currentUser1, newReview){
+    console.log(self.newReview);
+    currentUser1 = $rootScope.currentUser.id
+    console.log(currentUser1)
+    // requesting to rails API to create REVIEW
+    $http.post(`${server}/reviews`, newReview)
+      .then(function(response){
+        console.log(response.data)
+        self.movies.push(response.data);
+        newReview = {};
+        console.log("MOVIES!!", newMovie);
+
+        $state.go('usershow', {userId: currentUser1.id})
+      });
+  }
+
   function deleteReview(id, currentUser1){
     currentUser1 = $rootScope.currentUser.id
     console.log(id)

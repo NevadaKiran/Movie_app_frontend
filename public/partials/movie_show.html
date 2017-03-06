@@ -1,18 +1,17 @@
 
 <div ng-controller="MovieController as movie">
+  <div ng-controller="ReviewController as review">
     <button ng-click="showMovieForm = !showMovieForm"> Create your own movie to review </button>
     <button ng-click="movie.showMovies(movies)">Show Movie Collection</button>
     <div class="allmovies" ng-repeat=" film in movie.movies">
       <h1> {{film.title}}</h1>
-      <img class="poster_url" src="{{film.poster_url}}">
-      <button ng-click="movie.createReview(film.id)" class="review_button"> Review </button>
+      <img ng-click="movie.showMovie(movie)" class="poster_url" src="{{film.poster_url}}">
       <button ng-click="movie.deleteMovie(film.id)" class="delete_button"> Delete </button>
-      <button ng-click="showMovieEditForm = !showMovieEditForm" class="edit_button"> Edit </button>
+        <button ng-click="movie.showMovie(movie)"" class="review_button"> Review</button>
     </div>
 
-
+    <!-- Create Movie Form  -->
       <div ng-show="showMovieForm">
-        <!-- // This is movie create form, I need to figure out how to go to the  review  page:  -->
         <form ng-submit="movie.createMovie()">
           <input ng-model="newMovie.title" type="text" placeholder="Movie Title">
           <input ng-model="newMovie.release_date" type="text" placeholder=" Release Date">
@@ -22,6 +21,17 @@
           <button ng-click="movie.createMovie(home.currentUser.id, newMovie)" type="submit"> Add Movie </button>
         </form>
       </div>
+
+      <div ng-show="showReviewForm">
+        <form ng-submit="review.createReview()">
+          <!-- <input ng-model="newReview.title" type="text" placeholder="Movie Title"> -->
+          <input ng-model="newReview.rating" type="text" placeholder="Rating">
+          <input ng-model="newReview.comments" type="text" placeholder="comments">
+          <button ng-click="review.createReview(home.currentUser.id, newReview)" type="submit"> Add Review </button>
+        </form>
+      </div>
+
+    </div>
 </div>
 
 

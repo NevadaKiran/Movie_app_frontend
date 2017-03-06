@@ -43,7 +43,7 @@ function populateInitialState(user){
         $state.go('usershow', {userId: currentUser1.id})
       });
   }
-
+//Show Movies Route
   function showMovies(movies){
       currentUser1 = $rootScope.currentUser.id
     $http.get(`${server}/movies`)
@@ -55,39 +55,55 @@ function populateInitialState(user){
 
   }
 
-function updateMovie(id){
-  currentUser1 = $rootScope.currentUser.id
-  console.log(id)
-  $http.put(`${server}/movies/${movieid}`,
-  {name: self.name, url:self.url})
-  .then(function(movieResponse){
-    console.log(movieResponse)
-    // self.savedMovies = movieResponse.data.currentUser.movies;
-    //
-    // self.url = ' ';
-    // self.name = ' ';
+//Show Movie Route
+  function showMovie(movie){
+    console.log(movie)
+    currentUser1= $rootScope.currentUser1.id
+    $http.get(`${server}/movies/${id}`)
+    .then(function(response){
+      consle.log(response);
+    })
+    $state.go('reviewshow')
+  }
 
-    $state.reload('usershow', {userid: currentUser1})
-  })
+//Delete Route
+  function deleteMovie(id){
+    console.log("PLEASE DELETE");
+    currentUser1 = $rootScope.currentUser.id
+    $http.delete(`${server}/movies/${id}`)
+    .then(function(response){
+      console.log(response);
+    })
+    $state.reload('movieshow')
+  }
+
+
+  self.createMovie = createMovie;
+  self.showMovies = showMovies;
+  self.deleteMovie = deleteMovie;
 }
 
 
-function deleteMovie(id){
-  console.log("PLEASE DELETE");
-  currentUser1 = $rootScope.currentUser.id
-  console.log(id)
-  // console.log(film);
-  console.log(currentUser1);
-  $http.delete(`${server}/movies/${id}`)
-  .then(function(response){
-    console.log(response);
 
-    // Recall all movies
-    // showMovies();
-    // self.savedMovies = response.data.currentUser.movies
-  })
-  $state.reload('usershow')
-}
+
+// function updateMovie(id){
+//   currentUser1 = $rootScope.currentUser.id
+//   console.log(id)
+//   $http.put(`${server}/movies/${movieid}`,
+//   {name: self.name, url:self.url})
+//   .then(function(movieResponse){
+//     console.log(movieResponse)
+//     // self.savedMovies = movieResponse.data.currentUser.movies;
+//     //
+//     // self.url = ' ';
+//     // self.name = ' ';
+//
+//     $state.reload('usershow', {userid: currentUser1})
+//   })
+// }
+
+
+
 
 // Need A Show 1 Movie Route
  // function show(movie){
@@ -98,10 +114,3 @@ function deleteMovie(id){
  //   $state.go('movieshow')
  // };
 //
-
-  self.createMovie = createMovie;
-  self.showMovies = showMovies;
-//   self.savedMovie = savedMovie;
-//   self.updateMovie = updateMovies;
-  self.deleteMovie = deleteMovie;
-}

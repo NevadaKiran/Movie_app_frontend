@@ -4,11 +4,26 @@ function ReviewController($scope, $http, $state, $stateParams, $rootScope){
   var server = 'http://localhost:3000'
   self.review = [];
 
-  // $rootScope.$on('fetchData', function(event, data){
-  //   console.log(data)
-  //   self.user = data.id
-  //   populateInitialState(data)
-  // });
+//   $rootScope.$on('fetchData', function(event, data){
+//     console.log(data)
+//     self.user = data.id
+//     populateInitialState(data)
+//
+//
+//   });
+//
+//
+//   function populateInitialState(user){
+//     console.log(user.id)
+//     self.user = user.id
+//
+// // Get all reviews function:
+//     $http.get(`${server}/reviews`)
+//     .then(function(response){
+//       console.log(response.data)
+//       self.movies = response.data
+//     })
+//   }
 
   function createReview(currentUser1, newReview){
     console.log(self.newReview);
@@ -22,7 +37,7 @@ function ReviewController($scope, $http, $state, $stateParams, $rootScope){
         newReview = {};
         console.log("MOVIES!!", newMovie);
 
-        $state.go('usershow', {userId: currentUser1.id})
+        $state.go('reviewshow', {userId: currentUser1.id})
       });
   }
 

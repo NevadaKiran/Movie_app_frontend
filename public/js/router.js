@@ -27,15 +27,15 @@ angular.module('movie-angular-app', ['ui.router'])
           templateUrl:'/partials/signup.html'
         })
         .state('usershow',{
-          url:'/movies',
+          url:'/users/:userid/reviews',
           templateUrl: '/partials/user_show.html'
         })
         .state('movieshow', {
-          url: '/movie/:movieid',
+          url: '/movies',
           templateUrl: '/partials/movie_show.html'
         })
         .state('movierevies',{
-          url:'/movie/:movieid/review',
+          url:'/reviews',
           templateUrl: '/partials/movie_review.html'
         })
       }
